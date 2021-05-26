@@ -253,15 +253,23 @@
                                     <constraint firstAttribute="height" constant="49" id="FNi-5e-Jm6"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem enabled="NO" systemItem="play" id="I2V-qx-QVq"/>
-                                    <barButtonItem enabled="NO" style="plain" id="M4F-Ox-xaR">
+                                    <barButtonItem systemItem="play" id="I2V-qx-QVq">
+                                        <connections>
+                                            <action selector="playAudioFunction:" destination="esH-bu-fRJ" id="BCf-oV-noz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="M4F-Ox-xaR">
                                         <slider key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="W1R-qL-cJ7">
                                             <rect key="frame" x="43.5" y="10" width="290" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </slider>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dM9-rz-Wsp"/>
-                                    <barButtonItem enabled="NO" systemItem="stop" id="QpN-fT-lTK"/>
+                                    <barButtonItem systemItem="stop" id="QpN-fT-lTK">
+                                        <connections>
+                                            <action selector="deleteAudioFunction:" destination="esH-bu-fRJ" id="TCn-N9-1PP"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -498,11 +506,19 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem systemItem="play" id="KyR-zZ-vAd"/>
+                        <barButtonItem systemItem="play" id="KyR-zZ-vAd">
+                            <connections>
+                                <action selector="playPauseAudio:" destination="XYD-Wd-L1X" id="5I9-cv-yqi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OHm-D2-g2y"/>
                         <barButtonItem enabled="NO" title="Play Audio" style="plain" id="5qr-ds-Urt"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Djt-ki-ClY"/>
-                        <barButtonItem image="stop.fill" catalog="system" id="5oD-q0-rYW"/>
+                        <barButtonItem image="stop.fill" catalog="system" id="5oD-q0-rYW">
+                            <connections>
+                                <action selector="stopButton:" destination="XYD-Wd-L1X" id="gJz-xg-zst"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="Ltv-FR-tmz"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

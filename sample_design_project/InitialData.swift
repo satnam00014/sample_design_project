@@ -33,7 +33,7 @@ class InitialData {
     static func createInitialData(){
         deleteData()
         createFolder()
-        notes = [Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context)]
+        notes = [Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context),Note(context: context)]
         
         //Following is data of notes
         notes[0].title = "Macbook Pro"
@@ -91,6 +91,35 @@ class InitialData {
         notes[7].latitude = 31.63
         notes[7].longitude = 74.87
         notes[7].parentFolder = folders[2]
+        
+        notes[8].title = "bAsus ROG Zephyrus S17"
+        notes[8].detail = "RTX 3080 and 2TB SSD"
+        notes[8].date = Date()
+        notes[8].latitude = 31.63
+        notes[8].longitude = 74.87
+        notes[8].parentFolder = folders[2]
+        
+        notes[9].title = "cAsus ROG Zephyrus S17"
+        notes[9].detail = "RTX 3080 and 2TB SSD"
+        notes[9].date = Date()
+        notes[9].latitude = 31.63
+        notes[9].longitude = 74.87
+        notes[9].parentFolder = folders[2]
+        
+        notes[10].title = "dAsus ROG Zephyrus S17"
+        notes[10].detail = "RTX 3080 and 2TB SSD"
+        notes[10].date = Date()
+        notes[10].latitude = 31.63
+        notes[10].longitude = 74.87
+        notes[10].parentFolder = folders[2]
+        
+        notes[11].title = "eAsus ROG Zephyrus S17"
+        notes[11].detail = "RTX 3080 and 2TB SSD"
+        notes[11].date = Date()
+        notes[11].latitude = 31.63
+        notes[11].longitude = 74.87
+        notes[11].parentFolder = folders[2]
+        
         do {
             try context.save()
         } catch  {

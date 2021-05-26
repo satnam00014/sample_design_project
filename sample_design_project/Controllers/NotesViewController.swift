@@ -33,11 +33,14 @@ class NotesViewController: UITableViewController {
         
     }
     
-    func loadNotes(predicate : NSPredicate? = nil)  {
+    func loadNotes(predicate : NSPredicate? = nil,search: [NSSortDescriptor]?=nil)  {
         let request : NSFetchRequest<Note> = Note.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        if search != nil{
+            request.sortDescriptors = search
+        }else{
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        }
         let folderPredicate = NSPredicate(format: "parentFolder.name=%@", parentFolder!.name!)
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
         if let additionalPredicate = predicate {
             request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [folderPredicate, additionalPredicate])
         } else {
@@ -73,10 +76,26 @@ class NotesViewController: UITableViewController {
     
     @IBAction func optionButtonFunction(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "SORT", message: "Notes", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "(A-Z) Ascending", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "(A-Z) Descending", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Date Ascending", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Date Descending", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "(A-Z) Ascending", style: .default, handler: {
+            _ in
+            self.loadNotes(predicate: nil, search: [NSSortDescriptor(key: "title", ascending: true)])
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "(A-Z) Descending", style: .default, handler: {
+            _ in
+            self.loadNotes(predicate: nil, search: [NSSortDescriptor(key: "title", ascending: false)])
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Date Ascending", style: .default, handler: {
+            _ in
+            self.loadNotes(predicate: nil, search: [NSSortDescriptor(key: "date", ascending: false)])
+            self.tableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "Date Descending", style: .default, handler: {
+            _ in
+            self.loadNotes(predicate: nil, search: [NSSortDescriptor(key: "date", ascending: false)])
+            self.tableView.reloadData()
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

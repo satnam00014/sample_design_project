@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D51B3F90265CC18B00BB3FED /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B3F8F265CC18B00BB3FED /* Data.swift */; };
+		D51B3F90265CC18B00BB3FED /* InitialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B3F8F265CC18B00BB3FED /* InitialData.swift */; };
 		D51B3F94265CD31400BB3FED /* MoveNotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B3F93265CD31400BB3FED /* MoveNotesController.swift */; };
 		D54C27DC265BF27F001B37DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C27DB265BF27F001B37DD /* AppDelegate.swift */; };
 		D54C27DE265BF27F001B37DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C27DD265BF27F001B37DD /* SceneDelegate.swift */; };
@@ -18,10 +18,13 @@
 		D54C27EB265BF280001B37DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D54C27E9265BF280001B37DD /* LaunchScreen.storyboard */; };
 		D54C27F4265BF2D4001B37DD /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C27F3265BF2D4001B37DD /* MainTableViewController.swift */; };
 		D54C27F6265C0293001B37DD /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54C27F5265C0293001B37DD /* NotesViewController.swift */; };
+		D5778AFE265DFE6B00BF95C1 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5778AFD265DFE6A00BF95C1 /* CreateNoteViewController.swift */; };
+		D5778B00265E2A3200BF95C1 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5778AFF265E2A3200BF95C1 /* EditNoteViewController.swift */; };
+		D5778B03265E2C8800BF95C1 /* no_image_found.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5778B02265E2C8800BF95C1 /* no_image_found.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D51B3F8F265CC18B00BB3FED /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D51B3F8F265CC18B00BB3FED /* InitialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialData.swift; sourceTree = "<group>"; };
 		D51B3F93265CD31400BB3FED /* MoveNotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveNotesController.swift; sourceTree = "<group>"; };
 		D54C27D8265BF27F001B37DD /* sample_design_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample_design_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C27DB265BF27F001B37DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +37,9 @@
 		D54C27EC265BF280001B37DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D54C27F3265BF2D4001B37DD /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		D54C27F5265C0293001B37DD /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		D5778AFD265DFE6A00BF95C1 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
+		D5778AFF265E2A3200BF95C1 /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		D5778B02265E2C8800BF95C1 /* no_image_found.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image_found.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +72,10 @@
 		D54C27DA265BF27F001B37DD /* sample_design_project */ = {
 			isa = PBXGroup;
 			children = (
+				D5778B01265E2C4900BF95C1 /* image and audio */,
 				D54C27F2265BF2BD001B37DD /* Controllers */,
 				D54C27DB265BF27F001B37DD /* AppDelegate.swift */,
+				D51B3F8F265CC18B00BB3FED /* InitialData.swift */,
 				D54C27DD265BF27F001B37DD /* SceneDelegate.swift */,
 				D54C27DF265BF27F001B37DD /* ViewController.swift */,
 				D54C27E1265BF27F001B37DD /* Main.storyboard */,
@@ -75,7 +83,6 @@
 				D54C27E9265BF280001B37DD /* LaunchScreen.storyboard */,
 				D54C27EC265BF280001B37DD /* Info.plist */,
 				D54C27E4265BF27F001B37DD /* sample_design_project.xcdatamodeld */,
-				D51B3F8F265CC18B00BB3FED /* Data.swift */,
 			);
 			path = sample_design_project;
 			sourceTree = "<group>";
@@ -86,8 +93,18 @@
 				D54C27F3265BF2D4001B37DD /* MainTableViewController.swift */,
 				D54C27F5265C0293001B37DD /* NotesViewController.swift */,
 				D51B3F93265CD31400BB3FED /* MoveNotesController.swift */,
+				D5778AFD265DFE6A00BF95C1 /* CreateNoteViewController.swift */,
+				D5778AFF265E2A3200BF95C1 /* EditNoteViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D5778B01265E2C4900BF95C1 /* image and audio */ = {
+			isa = PBXGroup;
+			children = (
+				D5778B02265E2C8800BF95C1 /* no_image_found.jpg */,
+			);
+			path = "image and audio";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +167,7 @@
 				D54C27EB265BF280001B37DD /* LaunchScreen.storyboard in Resources */,
 				D54C27E8265BF280001B37DD /* Assets.xcassets in Resources */,
 				D54C27E3265BF27F001B37DD /* Main.storyboard in Resources */,
+				D5778B03265E2C8800BF95C1 /* no_image_found.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,12 +179,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D51B3F94265CD31400BB3FED /* MoveNotesController.swift in Sources */,
-				D51B3F90265CC18B00BB3FED /* Data.swift in Sources */,
+				D51B3F90265CC18B00BB3FED /* InitialData.swift in Sources */,
 				D54C27E0265BF27F001B37DD /* ViewController.swift in Sources */,
 				D54C27DC265BF27F001B37DD /* AppDelegate.swift in Sources */,
+				D5778AFE265DFE6B00BF95C1 /* CreateNoteViewController.swift in Sources */,
 				D54C27F6265C0293001B37DD /* NotesViewController.swift in Sources */,
 				D54C27DE265BF27F001B37DD /* SceneDelegate.swift in Sources */,
 				D54C27F4265BF2D4001B37DD /* MainTableViewController.swift in Sources */,
+				D5778B00265E2A3200BF95C1 /* EditNoteViewController.swift in Sources */,
 				D54C27E6265BF27F001B37DD /* sample_design_project.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

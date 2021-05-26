@@ -20,11 +20,8 @@ class NotesViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     private var notes : [Note] = [Note]()
-    var parentFolder : Folder?{
-        didSet{
-            
-        }
-    }
+    var parentFolder : Folder?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showSearchBar()
@@ -113,7 +110,9 @@ class NotesViewController: UITableViewController {
     }
     
     @IBAction func createNoteFunction(_ sender: UIBarButtonItem) {
-        
+        let destination = self.storyboard?.instantiateViewController(identifier: "create_note_view") as! CreateNoteViewController
+        destination.parentFolder = self.parentFolder
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
     // MARK: - Table view data source
@@ -137,6 +136,13 @@ class NotesViewController: UITableViewController {
         } else if editingStyle == .insert {
             
         }    
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationView = self.storyboard?.instantiateViewController(identifier: "edit_note_view") as! EditNoteViewController
+        destinationView.delegate = self
+        destinationView.note = notes[indexPath.row]
+        self.navigationController?.pushViewController(destinationView, animated: true)
     }
 
 }

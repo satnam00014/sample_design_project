@@ -112,6 +112,7 @@ class NotesViewController: UITableViewController {
     @IBAction func createNoteFunction(_ sender: UIBarButtonItem) {
         let destination = self.storyboard?.instantiateViewController(identifier: "create_note_view") as! CreateNoteViewController
         destination.parentFolder = self.parentFolder
+        destination.delegate = self
         self.navigationController?.pushViewController(destination, animated: true)
     }
     
@@ -139,6 +140,7 @@ class NotesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard !editMode else { return }
         let destinationView = self.storyboard?.instantiateViewController(identifier: "edit_note_view") as! EditNoteViewController
         destinationView.delegate = self
         destinationView.note = notes[indexPath.row]

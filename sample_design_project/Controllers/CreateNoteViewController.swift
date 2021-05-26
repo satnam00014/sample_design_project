@@ -27,6 +27,7 @@ class CreateNoteViewController: UIViewController ,CLLocationManagerDelegate ,UII
     var locationManager = CLLocationManager()
     let imagePicker = UIImagePickerController()
     var parentFolder : Folder?
+    var delegate : NotesViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,7 +156,7 @@ class CreateNoteViewController: UIViewController ,CLLocationManagerDelegate ,UII
         newNote.detail = detail
         newNote.date = Date()
         newNote.latitude = lat
-        newNote.latitude = long
+        newNote.longitude = long
         newNote.image = imageData
         newNote.parentFolder = self.parentFolder
         do {
@@ -163,6 +164,8 @@ class CreateNoteViewController: UIViewController ,CLLocationManagerDelegate ,UII
         } catch  {
             print(error)
         }
+        delegate?.loadNotes()
+        delegate?.tableView.reloadData()
         self.navigationController?.popViewController(animated: true)
     }
 

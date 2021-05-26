@@ -44,7 +44,7 @@ class EditNoteViewController: UIViewController ,CLLocationManagerDelegate,MKMapV
             playButton.isEnabled = false
             stopButton.isEnabled = false
         }else{
-        
+            
         }
  
         if noteFetched.latitude == 0 && noteFetched.longitude == 0 {
@@ -59,7 +59,7 @@ class EditNoteViewController: UIViewController ,CLLocationManagerDelegate,MKMapV
         let latDelta:CLLocationDegrees = 0.05
         let longDelta:CLLocationDegrees = 0.05
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
-        
+        print("got location: \(note.latitude) , \(note.longitude)")
         //get location
         let location = CLLocationCoordinate2D(latitude: note.latitude, longitude: note.longitude)
         

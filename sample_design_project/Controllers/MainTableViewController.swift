@@ -19,7 +19,7 @@ class MainTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.title = "Folders"
         showSearchBar()
-        InitialData.createInitialData()
+        //InitialData.createInitialData()
         loadFolders()
     }
     

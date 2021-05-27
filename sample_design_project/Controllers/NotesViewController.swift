@@ -30,7 +30,12 @@ class NotesViewController: UITableViewController {
     }
 
     func deleteNote(note:Note)  {
-        
+        do {
+            context.delete(note)
+            try context.save()
+        } catch  {
+            print(error)
+        }
     }
     
     func loadNotes(predicate : NSPredicate? = nil,search: [NSSortDescriptor]?=nil)  {
@@ -88,7 +93,7 @@ class NotesViewController: UITableViewController {
         }))
         alert.addAction(UIAlertAction(title: "Date Ascending", style: .default, handler: {
             _ in
-            self.loadNotes(predicate: nil, search: [NSSortDescriptor(key: "date", ascending: false)])
+            self.loadNotes(predicate: nil, search: [NSSortDescriptor(key: "date", ascending: true)])
             self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Date Descending", style: .default, handler: {
@@ -152,10 +157,16 @@ class NotesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-        } else if editingStyle == .insert {
-            
-        }    
+            let alert = UIAlertController(title: "Delete", message: "Are you sure to delete note ?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {
+                _ in
+                self.deleteNote(note: self.notes[indexPath.row])
+                self.loadNotes()
+                self.tableView.reloadData()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
